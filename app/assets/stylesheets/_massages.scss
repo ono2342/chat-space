@@ -1,0 +1,130 @@
+.flash-box {
+  color: white;
+  font-size: 1rem;
+  font-weight: lighter;
+  text-align: center;
+  width: 100vw;
+  &__notice {
+    background-color: $blue;
+  }
+}
+
+.chat-main {
+  box-sizing: border-box;
+  width: calc(100vw - 300px);
+  float: left;
+  .header {
+    box-sizing: border-box;
+    height: 100px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #eee;
+    overflow: scroll;
+    .left-box {
+      &__current-group {
+        margin-top: 35px;
+        font-size: 20px;
+        color: #333333;
+      }
+      &__member-list {
+        margin-top: 15px;
+        display: flex;
+        font-size: 12px;
+        color: #999999;
+      }
+    }
+    .edit-btn {
+      color: $blue;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      margin-top: 30px;
+      border: solid 1px $blue;
+      position: absolute;
+      right: 40px;
+    }
+  }
+  
+  .messages {
+    box-sizing: border-box;
+    height: calc(100vh - 190px);
+    padding: 46px 40px 0;
+    background-color: #fafafa;
+    overflow: scroll;
+    .message {
+      padding-bottom: 40px;
+      &__info {
+        display: flex;
+        &__user-name {
+          font-size: 16px;
+          font-weight: bold;
+          color: $font-color;
+        }
+        &__date {
+          font-size: 12px;
+          color: #999999;
+          margin-left: 10px;
+        }
+      }
+      &__text {
+        margin: 10px 0 0;
+        font-size: 14px;
+        color: $font-color;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .form {
+    box-sizing: border-box;
+    height: 90px;
+    padding: 20px 40px;
+    background-color: #ddd;
+    .new-message {
+      display: flex;
+      box-sizing: border-box;
+      width:100%;
+      &__input-box {
+        position: relative;
+        width: 100%;
+        &__message {
+          width:calc(100% - 50px);
+          height: 50px;
+          padding: 0 40px 0 10px;
+          color: $font-color;
+          border-style: none;
+          float: left;
+          &__img {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            .icon 
+            {
+              display: inline-block;
+              font: normal normal normal 14px/1 FontAwesome;
+              font-size: inherit;
+              text-rendering: auto;
+              -webkit-font-smoothing: antialiased;
+            }
+          }
+        }
+      }
+      &__send {
+        width: 100px;
+        height: 50px;
+        padding: 0 30px;
+        margin-left: 15px;
+        background-color: $blue;
+        color: white;
+        cursor: pointer;
+        box-sizing: border-box;
+        float: right;
+      }
+    }
+  }
+}
+
+

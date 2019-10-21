@@ -1,0 +1,46 @@
+.side-bar {
+  box-sizing: border-box;
+  width: 300px;
+  color: white;
+  float: left;
+  height: 100%;
+  .header {
+    background-color: #253141;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    &__user-name {
+      justify-content: space-between;
+      width: 100%;
+      font-weight: bold;
+      display: inline-block;
+    }
+    &__menu {
+      display: flex;
+      float: right;
+      .icon {
+        color: white;
+        margin-left: 0.3rem;
+      }
+    }
+  }
+  .groups {
+    box-sizing: border-box;
+    height: calc(100vh - 100px);
+    background-color: #2f3e51;
+    padding: 20px 20px 0;
+    overflow: scroll;
+    .group {
+      color: white;
+      padding: 0px 0 40px;
+      &__name {
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+      &__message {
+        font-size: 11px;
+      }
+    }
+  }
+}
