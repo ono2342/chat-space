@@ -1,0 +1,49 @@
+!!!
+%html{lang: "ja"}
+  %head
+    %meta(charset="UTF-8")
+  %body
+    .flash-box
+      .flash-box__notice
+        グループを編集しました
+
+    .wrapper
+      = render partial: "side_bar"
+      .chat-main
+        .header
+          .left-box
+            .left-box__current-group
+              d
+            .left-box__member-list
+              Member : 
+              .meber-list__member
+              メンバー
+          .edit-btn
+            edit
+        .messages
+          .message
+            .message__info
+              .message__info__user-name
+                ユーザーネーム
+              .message__info__date
+                10/21
+            .message__text
+              こんにちは
+          .message
+            .message__info
+              .message__info__user-name
+                ユーザーネーム
+              .message__info__date
+                10/21
+            .message__text
+              こんにちは
+        .form
+          .new-message
+            .new-message__input-box
+              %input.new-message__input-box__message{placeholder: "type a message"}
+                .new-message__input-box__message__img
+                  %label
+                    = fa_icon "picture-o", class: "icon"
+                    %input.img{type: "file", style: "display:none"}
+            %input.new-message__send{type: "submit", value: "Send"}
+
