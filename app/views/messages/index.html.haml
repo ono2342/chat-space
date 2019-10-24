@@ -15,7 +15,7 @@
               .meber-list__member
               メンバー
           .edit-btn
-            edit
+            = link_to "Edit", edit_group_path(params[:group_id]), method: :get
         .messages
           .message
             .message__info
@@ -36,10 +36,9 @@
         .form
           .new-message
             .new-message__input-box
-              %input.new-message__input-box__message{placeholder: "type a message"}
-                .new-message__input-box__message__img
-                  %label
-                    = fa_icon "picture-o", class: "icon"
-                    %input.img{type: "file", style: "display:none"}
-            %input.new-message__send{type: "submit", value: "Send"}
-
+              = form_for [@group, @message] do |f|
+                = f.text_field :content, class: 'new-message__input-box__message', placeholder: 'type a message'
+                = f.label :image, class: 'new-message__input-box__message__img' do
+                  = fa_icon 'picture-o', class: 'icon'
+                  = f.file_field :image, class: 'hidden'
+                = f.submit 'Send', class: 'new-message__send'
