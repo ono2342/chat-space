@@ -9,30 +9,17 @@
         .header
           .left-box
             .left-box__current-group
-              d
+              = @group.name
             .left-box__member-list
               Member : 
               .meber-list__member
-              メンバー
+                - @group.users.each do |a|
+                  = a.name
           .edit-btn
             = link_to "Edit", edit_group_path(params[:group_id]), method: :get
         .messages
-          .message
-            .message__info
-              .message__info__user-name
-                ユーザーネーム
-              .message__info__date
-                10/21
-            .message__text
-              こんにちは
-          .message
-            .message__info
-              .message__info__user-name
-                ユーザーネーム
-              .message__info__date
-                10/21
-            .message__text
-              こんにちは
+          = render @messages
+          
         .form
           .new-message
             .new-message__input-box
