@@ -46,26 +46,30 @@ $(function() {
     return false;
    });
 
-   var reloadMessages = function() {
-    last_message_id = $('.message').last().attr('data-message-id')
-    $.ajax({
-      url: "api/messages",
-      type: "get",
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages) {
-      var insertHTML = '';
-      messages.forEach(function(messages) {
-      insertHTML += buildHTML(messages);
-      
-      $('.messages').append(insertHTML);
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast'); 
+  var Interval = setInterval(function() {
+    if (location.pathname.match(/\/messages/)) {
+      last_message_id = $('.message').last().attr('data-message-id')
+      $.ajax({
+        url: "api/messages",
+        type: "get",
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        var insertHTML = '';
+        messages.forEach(function(messages) {
+        insertHTML += buildHTML(messages);
+        
+        $('.messages').append(insertHTML);
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast'); 
+        });
+      })
+      .fail(function() {
+        alert('error');
       });
-    })
-    .fail(function() {
-      alert('error');
-    });
-  };
-  setInterval(reloadMessages, 5000);
+
+    } else {
+      clearInterval(Interval);
+    }}
+  , 5000);
 });
